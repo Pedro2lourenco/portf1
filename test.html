@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Foldit:wght@600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <title>Meu perfil</title>
+    <style>
+        body {
+            background-color: #202021;
+            margin: 0;
+            background-position: center;
+            
+            background-size: cover;
+        }
+        header {
+            background: linear-gradient(135deg, #3a106e, #7f30cf); 
+            color: white;
+            text-align: center;
+            
+            padding: 30px 20px; 
+            margin: 0;
+
+        }
+
+        header h1 {
+            font-family: 'Roboto', sans-serif;
+            font-size: 2.8rem; 
+            font-weight: 700;
+            margin: 0 0 15px 0;
+            letter-spacing: 1px; 
+        }
+
+        header p {
+            font-family: 'Roboto', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 300; 
+            color: #e0e0e0; 
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .foto {
+            position: relative;
+            width: 180px;
+            height: 180px;
+            margin: 40px auto; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+            position: relative;
+        }
+        
+        .pulse-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            
+            width: 180px;
+            height: 180px;
+            z-index: 1;
+        }
+
+        .pulse1,.pulse2,.pulse3{
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            opacity: 0.6;
+            z-index: 1;
+            background: #7f30cf;
+            animation: pulse 3s infinite 
+        }
+
+        .pulse2{animation-delay: 1s;}
+
+        .pulse3{animation-delay: 2s;}
+
+        .foto img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            position: relative;
+            z-index: 2;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+
+            }
+            100%{
+                transform: scale(1.4);
+                opacity: 0;
+
+            }
+        }
+        .info {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 25px;
+
+            font-family: 'Roboto', sans-serif;
+            color: white;
+            
+        }
+        .info h2{
+            margin-bottom: 15px;
+            color: #7f30cf;
+            text-align: left;
+        }
+        .info p {
+            line-height: 1.6;
+        }
+        
+        .github {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            font-family: 'Poppins', sans-serif;
+            color: #7f30cf;
+        }
+
+        .github-header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .github-chart {
+            width: 90%;
+            max-width: 700px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(127, 48, 207, 0.4);
+        }
+
+        .skills {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #2a2a2e;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.5);
+            text-align: center;
+        }
+
+        .skills h2 {
+            color: #7f30cf;
+            font-family: 'Roboto', sans-serif;
+            margin-bottom: 20px;
+        }
+
+        .skills h3 {
+            color: white;
+            font-family: 'Roboto', sans-serif;
+            margin-top: 25px;
+            margin-bottom: 10px;
+        }
+
+        .skills img {
+            margin: 5px;
+        }
+    
+        .timeline {
+            max-width: 900px;
+            margin: 50px auto;
+        }
+
+        .timeline-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .timeline-item.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .timeline .text {
+            flex: 1;
+            color: white;
+            font-family: 'Roboto', sans-serif;
+            text-align: justify;
+        }
+
+        .timeline .image img {
+            width: 250px;
+            border-radius: 10px;
+        }
+
+        .hidden {
+            opacity: 0;
+            transform: translateY(50px); 
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .presentation {
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 10px;
+            width: 50%;
+        }
+
+        .image-grid img {
+            width: 100%;
+            height: 200px; 
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .image-grid img:hover {
+            transform: scale(1.05);
+        }
+
+        .glass-footer {
+            display: flex;
+            justify-content: center;
+            margin: 60px 0;
+        }
+
+        
+        .social-box {
+            display: flex;
+            gap: 25px;
+            padding: 20px 40px;
+            
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+
+            border: 1px solid rgba(255, 255, 255, 0.2);
+
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+        }
+
+       
+        .social-box a {
+            font-size: 28px;
+            color: white;
+            transition: all 0.3s ease;
+        }
+
+        
+        .social-box a:hover {
+            transform: scale(1.2);
+            color: #7f30cf;
+        }
+
+        
+    </style>
+</head>
+
+<body>
+
+<header>
+<h1>Pedro Lourenço</h1>
+<p>Physicist | M.Sc. Student in Applied Physics | Data Science Student | Complex Systems | Time Series Analysis | Computational Modeling</p>
+</header>
+
+<div class = "presentation">
+<div class="foto hidden">
+    <div class="pulse-container">
+        <div class="pulse1"></div>
+        <div class="pulse2"></div>
+        <div class="pulse3"></div>
+        <img src="imgs/94725958.jpg" alt="Minha foto">
+    </div>
+</div>
+
+<div class="info hidden">
+
+<h2>Sobre mim</h2>
+<p>
+    Graduado em Física, mestrando em Física Aplicada e graduando em Ciência de Dados (tecnólogo), com experiência em modelagem computacional 
+    e análise de dados. Atuo na aplicação de métodos quantitativos e simulações para resolver problemas complexos, 
+    com interesse em Ciência de Dados, análise de dados e sistemas dinâmicos.
+</p>
+
+
+</div>
+</div>
+
+<div class="timeline">
+
+    <div class="timeline-item  hidden">
+        <div class="text">
+            <h3>Início na Física Computacional</h3>
+            <p>Iniciei minha trajetória em Física Computacional por meio da Iniciação Científica na Universidade Federal Rural de Pernambuco (UFRPE), 
+                com foco no estudo de sistemas complexos e dinâmicos fora do equilíbrio. Durante esse período, tive contato 
+                com métodos estatísticos e análise de dados, consolidando as bases que impulsionaram minha transição para a área de ciência de dados.
+            </p>
+        </div>
+        <div class="image-grid">
+            <img src="imgs/Camada 1.jpg">
+            <img src="imgs/c3c8dccc-3897-461a-8bf3-f5662a76aadd.jpg">
+        </div>
+    </div>
+
+    <div class="timeline-item reverse hidden">
+        <div class="text">
+            <h3>Linhas de pesquisa e trabalhos</h3>
+            <p>Desenvolvi projetos em modelagem computacional voltados à física estatística, utilizando simulações de
+            Monte Carlo para investigar sistemas complexos e fenômenos emergentes. Implementei, em C, simulações
+            do modelo de Ising com interações de segunda vizinhança, analisando propriedades termodinâmicas como
+            energia, magnetização e funções de correlação. Para otimização computacional, utilizei paralelização com MPI e técnicas avançadas como Parallel Tempering,
+            aumentando a eficiência na exploração do espaço de estados. Além disso, integrei esses estudos com análise de dados em Python, utilizando NumPy, Pandas e Matplotlib
+            para tratamento, visualização e interpretação dos resultados, consolidando uma base sólida em ciência de dados
+            aplicada a problemas científicos.
+            </p>
+        </div>
+        <div class="image-grid">
+            <img src="imgs/parallel-tau-e.png">
+            <img src="imgs/trajetorias_rossler_ultra.gif">
+            <img src="imgs/SHeat.png">
+            <img src="imgs/Maghist.png">
+            <img src="imgs/vicsek.gif">
+            <img src="imgs/video_T=1.30_highQ.gif">
+        </div>
+    </div>
+
+    <div class="text hidden">
+            <h3>Transição para Data Science</h3>
+            <p>
+            Buscando expandir minha atuação para além da física, iniciei minha transição para a área de 
+            Ciência de Dados, aplicando conceitos estatísticos e computacionais na análise de dados reais.
+            </p>
+
+        <p>
+            Durante esse processo, desenvolvi projetos envolvendo manipulação, armazenamento e análise de dados,
+            utilizando ferramentas como Python e bancos de dados relacionais. Trabalhei com organização de dados,
+            consultas estruturadas e construção de análises exploratórias.
+        </p>
+
+        <p>
+            Também explorei técnicas de visualização e interpretação de dados, buscando extrair padrões e insights
+            relevantes a partir de diferentes conjuntos de dados.
+        </p>
+
+        <p>
+            Essa transição representa não apenas uma mudança de área, mas a continuidade natural do meu trabalho
+            com modelagem, análise e interpretação de sistemas complexos.
+        </p>
+    </div>
+
+
+</div>
+
+
+<div class="skills hidden">
+    <h2>Habilidades</h2>
+
+    <img src="https://img.shields.io/badge/C-00599C?style=for-the-badge&logo=c&logoColor=white">
+    <img src="https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white">
+    <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white">
+    <img src="https://img.shields.io/badge/Bash-121011?style=for-the-badge&logo=gnu-bash&logoColor=green&color=black">
+    <img src="https://img.shields.io/badge/SQL-003B57?style=for-the-badge&logo=postgresql&logoColor=white">
+    <img src="https://img.shields.io/badge/R-276DC3?style=for-the-badge&logo=r&logoColor=white">
+    <img src=https://img.shields.io/badge/SciPy-8CAAE6?style=for-the-badge&logo=scipy&logoColor=white>
+    <img src="https://img.shields.io/badge/Jupyter-Notebook-F37626?style=for-the-badge&logo=jupyter&logoColor=white">
+
+    <img src="https://img.shields.io/badge/MPI-FF6F00?style=for-the-badge&logo=mpi&logoColor=white">
+    <img src="https://img.shields.io/badge/CUDA-76B900?style=for-the-badge&logo=nvidia&logoColor=white">
+
+
+    <img src="https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white">
+    <img src="https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white">
+    <img src="https://img.shields.io/badge/Scikit--Learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white">
+    <img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white">
+
+    <img src="https://img.shields.io/badge/Matplotlib-11557C?style=for-the-badge">
+    <img src="https://img.shields.io/badge/Gnuplot-FF6600?style=for-the-badge">
+    <img src="https://img.shields.io/badge/HTML-E34F26?style=for-the-badge&logo=html5&logoColor=white">
+    <img src="https://img.shields.io/badge/CSS-1572B6?style=for-the-badge&logo=css3&logoColor=white">
+    <img src="https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white">
+
+    <img src="https://img.shields.io/badge/Linux-800020?style=for-the-badge&logo=linux&logoColor=white">
+
+    <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white">
+    <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white">
+</div>
+<div class="github hidden">
+    <div class="github-header">
+        <h2>Atividade no GitHub</h2>
+    </div>
+    
+    <img class="github-chart"
+         src="https://github-readme-activity-graph.vercel.app/graph?username=Pedro2lourenco&theme=tokyo-night"
+         alt="GitHub Contributions">
+</div>
+
+<script>
+   
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            // Se o elemento estiver visível na tela
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show'); 
+            }
+        });
+    });
+
+    const hiddenElements = document.querySelectorAll('.hidden');
+
+    hiddenElements.forEach((el) => observer.observe(el));
+</script>
+
+
+<footer class="glass-footer">
+    <div class="social-box">
+        <a href="https://github.com/Pedro2lourenco" target="_blank">
+            <i class="fab fa-github"></i>
+        </a>
+
+        <a href="https://instagram.com/pedrow.lourenco" target="_blank">
+            <i class="fab fa-instagram"></i>
+        </a>
+
+        <a href="peredro.lourenco76@gmail.com">
+            <i class="fas fa-envelope"></i>
+        </a>
+    </div>
+</footer>
+
+</body>
+
+</html>
